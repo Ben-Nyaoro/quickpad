@@ -1,0 +1,10 @@
+<div class="container mt-3">
+	<%= link_to 'New Accounting Code', new_accounting_code_path, class: "btn btn-outline-dark" %> <br><hr>
+	<h1>Chart of Accounts</h1>
+	<% if @accounting_codes.size == 0 %>
+		<p>There are no accounting codes found.</p>
+	<% else %>
+		<%= render "list" %>
+	<% end %><hr>
+
+</div>

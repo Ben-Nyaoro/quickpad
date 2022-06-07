@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Create a new account</h1>
+	<%= simple_form_for @accounting_code do |f| %>
+		<%= f.input :account %>
+		<%= f.input :code %>
+		<%= f.input :description %>
+		<%= f.input :category, collection: ['Assets', 'Liabilities', 'Equity', 'Revenues', 'Expenses'	] %>
+		<%= f.input :status, collection: ['Active', 'Inactive', 'Closed'], default: "Active" %>
+		<%= f.submit class: "btn btn-primary" %>
+	<% end %>
+</div>	
+
