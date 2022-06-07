@@ -1,6 +1,23 @@
 <div class="container mt-3">
-	<%= link_to 'New Accounting Code', new_accounting_code_path, class: "btn btn-outline-dark" %> <br><hr>
-	<h1>Chart of Accounts</h1>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="d-flex justify-content-around">
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Chart of Accounts
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					</li>
+						<li><%= link_to '+ Add Account', new_accounting_code_path, class: "btn btn-outline-success" %></li>
+				</ul><hr>
+			</div>
+		</div>
+	</nav>
 	<% if @accounting_codes.size == 0 %>
 		<p>There are no accounting codes found.</p>
 	<% else %>

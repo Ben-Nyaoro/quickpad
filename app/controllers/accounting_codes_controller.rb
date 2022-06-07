@@ -3,7 +3,7 @@ class AccountingCodesController < ApplicationController
 	before_action :set_accounting_code, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@accounting_codes = AccountingCode.select("*").order(:code => :asc)
+		@accounting_codes = AccountingCode.all.select("*").order(:code => :asc)
 	end
 
 	def show
@@ -42,7 +42,7 @@ class AccountingCodesController < ApplicationController
 private
 
 	def accounting_code_params
-		params.require(:accounting_code).permit(:code, :account, :category, :status, :description)
+		params.require(:accounting_code).permit(:code, :account, :description, :category, :detail_category, :balance, :status )
 	end
 
 	def set_accounting_code

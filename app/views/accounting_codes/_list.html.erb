@@ -2,10 +2,13 @@
 <thead>
 	<tr>
 		<th>Code</th>
-		<th>Name</th>
-		<th>Description</th>
+		<th>Account</th>
 		<th>Category</th>
+		<th>Detail Category</th>
+		<th>Description</th>
+		<th>Balance</th>
 		<th>Status</th>
+		<th>Action</th>
 		<th>&nbsp;</th>
 	</tr>
 </thead>
@@ -14,11 +17,22 @@
 		<tr>
 			<td><%= accounting_code.code %></td>
 			<td><%= accounting_code.account %></td>
-			<td><%= accounting_code.description %></td>
 			<td><%= accounting_code.category %></td>
+			<td><%= accounting_code.detail_category %></td>
+			<td><%= accounting_code.description %></td>
+			<td><%= accounting_code.balance %></td>
 			<td><%= accounting_code.status %></td>
-			<td><%= link_to 'View', accounting_code_path(accounting_code.id) %></td>
-			<td><%= link_to 'Delete', accounting_code_path(accounting_code.id), method: :delete, data: {confirm: "Are you sure?"}%></td>
+			<td>
+				<ul class="navbar-nav me-auto">
+						<li class="nav-item dropdown">
+							<%= image_tag "downarrow.png", height: 30, width: 20, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+								<%= link_to 'View', accounting_code_path(accounting_code.id), class: "dropdown-item caret"  %>
+								<%= link_to 'Delete', accounting_code_path(accounting_code.id), method: :delete, data: {confirm: "Are you sure?"}, class: "dropdown-item caret" %>
+							</div>
+						</li>
+				</ul>
+			</td>
 		</tr>
 	<% end %>
 </tbody>
