@@ -96,6 +96,8 @@ STATUS = [
 	validates :status, presence: true, inclusion: { in: STATUS }
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
+	has_many :journal_entries
+
   def to_s
     "#{code} - #{name}"
   end

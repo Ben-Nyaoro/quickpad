@@ -1,82 +1,93 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "Logolong.png" %>
-    <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-  <% if user_signed_in? %>
-  <ul class="nav justify-content-end">
-		<li class="nav-item dropdown">
-			<%= image_tag "quickadd.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+				<% if user_signed_in? %>
+			<div class="container">
+				<div class="row justify-content-start">
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "quickadd.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "New Accounting Codes", new_accounting_code_path, class: "dropdown-item" %>
+								<%= link_to "New Accounting Entries", new_accounting_entry_path, class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %> <hr>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
 
-		<li class="nav-item dropdown">
-			<%= image_tag "recent.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "recent.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "Action", "#", class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
 
-		<li class="nav-item dropdown">
-			<%= image_tag "search.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+					<div class="col">
+								<form class="d-flex">
+									<input class="form-control me-2" style="width=100px;" type="search" placeholder="Search" aria-label="Search">
 
-		<li class="nav-item dropdown">
-			<%= image_tag "notification.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+								</form>
+					</div>
 
-		<li class="nav-item dropdown">
-			<%= image_tag "settings.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "notification.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "Action", "#", class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
 
-		<li class="nav-item dropdown">
-			<%= image_tag "help.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "settings.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "Action", "#", class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
 
-		<li class="nav-item dropdown">
-			<%= image_tag "user.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to "Action", "#", class: "dropdown-item" %>
-				<%= link_to "Another action", "#", class: "dropdown-item" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-			</ul>
-		</li>
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "help.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "Action", "#", class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
 
-	</ul>
-  <% else %>
-		<li class="nav-item">
-			<%= link_to "Login", new_user_session_path, class: "nav-link" %>
-		</li>
-		<% end %>
-	</ul>
-  </div>
+					<div class="col">
+						<li class="nav-item dropdown">
+							<%= image_tag "user.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+							<ul class="dropdown-menu">
+								<%= link_to "Action", "#", class: "dropdown-item" %>
+								<%= link_to "Another action", "#", class: "dropdown-item" %>
+								<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+							</ul>
+						</li>
+					</div>
+
+				</div>
+			</div>
+
+				<% else %>
+					<li class="nav-item">
+						<%= link_to "Login", new_user_session_path, class: "nav-link" %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
   </div>
 </div>
