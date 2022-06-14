@@ -1,2 +1,19 @@
-<h1>AccountingEntries#show</h1>
-<p>Find me in app/views/accounting_entries/show.html.erb</p>
+<h3>Accounting Entry</h3>
+	<ul class="list-inline">
+		<li><b>Reference no:</b> <%= @accounting_entry.ref_number %></li>
+		<li><b>Date Prepared:</b> <%= @accounting_entry.date_prepared.strftime(" %a, %e %b %Y") %></li>
+		<li><b>Status:</b> <%= @accounting_entry.status %></li>
+	</ul>
+	<div  data-controller="">
+		<hr>
+			<% if @accounting_entry.pending? %>
+				<button class="btn btn-outline-success" id="btn-approve" data-approve-target="btn-approve" data-action="click->approve#showModal">
+						Approve
+				</button>
+				<button class="btn btn-outline-danger" id="btn-reject" data-approve-target="btn-reject" data-action="click->approve#rejectEntry">
+						Reject
+				</button>
+			<% end %>
+		<hr>
+		<%= render "approve" %>
+	</div>

@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+
+				<%= form_with model: @accounting_entry, class:"" do |f|  %>
+				<div class="row d-flex justify-content-between">
+					<div class="col">
+							<%= f.label :ref_number %>
+							<%= f.text_field :ref_number%>
+					</div>
+					<div class="col">
+						<%= f.label :date_prepared %>
+						<%= f.date_field :date_prepared%>
+					</div>
+					<div class="col">
+						<%= f.label :date_posted %>
+						<%= f.date_field :date_posted %>
+					</div>
+				</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col m-3">
+				<%= f.label :status, collection: AccountingEntry::STATUSES %>
+				<%= f.select :status, collection: AccountingEntry::STATUSES %>
+			</div>
+			<div class="col m-3">
+				<%= f.label :book, collection: AccountingEntry::BOOKS %>
+				<%= f.select :book, collection: AccountingEntry::BOOKS %>
+			</div>
+		</div>
+		<div class="row">
+				<%= f.label :particular, class: "m-4" %>
+				<%= f.text_area :particular, class: "m-4" %>
+		</div>
+				<%= f.submit class: "m-4" %>
+			<% end %>
+		</div>
+</div>

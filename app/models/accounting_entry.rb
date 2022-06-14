@@ -8,4 +8,9 @@ class AccountingEntry < ApplicationRecord
 	validates :book, presence: true, inclusion: { in: BOOKS }
 
 	has_many :journal_entries
+
+	def pending?
+		self.status == "pending"
+	end
+
 end
