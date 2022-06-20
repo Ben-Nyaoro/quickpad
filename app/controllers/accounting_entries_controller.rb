@@ -31,6 +31,10 @@ class AccountingEntriesController < ApplicationController
 		else
 			render 'edit'
 		end
+
+		if @accounting_entry.status != :approved
+			@approve_entry = @accounting_entry.update(status => :approved)
+		end
 	end
 
 	def destroy

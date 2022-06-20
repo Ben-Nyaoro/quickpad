@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "btn-approve", "btn-reject", "modal" ]
+  static targets = [ "btn-approve", "btn-reject", "approve-method" ]
 
 
   connect() {
@@ -9,17 +9,11 @@ export default class extends Controller {
 	}
 
 	approveEntry() {
-		console.log("event");
+		console.log(this.element)
 	}
 
 	rejectEntry() {
 		console.log(this.element)
-	}
-
-	showModal(event) {
-		this.modalTarget.innerHTML = this.element.dataset.id
-		this.modalTarget.classList.add("is-active")
-		console.log(event);
 	}
 
 }

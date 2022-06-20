@@ -23,17 +23,18 @@
 			<td><%= accounting_code.balance %></td>
 			<td><%= accounting_code.status %></td>
 			<td>
-		<li class="nav-item dropdown list-inline">
-			<%= image_tag "downarrow.png", class: "icon dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-			<ul class="dropdown-menu">
-				<%= link_to 'View', accounting_code_path(accounting_code.id), class: "dropdown-item caret"  %>
-				<%= link_to 'Delete', accounting_code_path(accounting_code.id), method: :delete, data: {confirm: "Are you sure?"}, class: "dropdown-item caret" %>
-			</ul>
-		</li>
+				<li class="nav-item dropdown list-inline">
+					<%= image_tag "downarrow.png", class: "icon-index dropdown-toggle text-center", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+					<ul class="dropdown-menu">
+						<%= link_to 'View', accounting_code_path(accounting_code.id), class: "dropdown-item caret"  %>
+						<%= link_to 'Delete', accounting_code_path(accounting_code.id), method: :delete, data: {confirm: "Are you sure?"}, class: "dropdown-item caret" %>
+					</ul>
+				</li>
 			</td>
 		</tr>
 
 	<% end %>
 </tbody>
 	</table>
+
 
