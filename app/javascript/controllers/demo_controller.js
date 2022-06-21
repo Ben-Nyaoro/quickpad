@@ -1,25 +1,24 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "stimulus";
 
 export default class extends Controller {
+    static targets = ["approve", "reject"];
 
-	static targets = ["modal"]
-
-	initialize() {
-		console.log("Hello from demo controller!");
+	connect() {
+		console.log("demo controller connected");
 	}
 
-	launchDemo(event) {
-	const modalController = this.application.getControllerForElementAndIdentifier(
-		this.modalTarget,
-		"modal"
+	approveAccountingEntry() {
+		const modalController = this.application.getControllerForElementAndIdentifier(
+			this.approveTarget,
+			"modal"
 		);
-
-	const coHostModalController = this.application.getControllerForElementAndIdentifier(
-		this.modalTarget,
-		"co-host-modal"
-	);
-
-		coHostModalController.setCoHostContent(event.currentTarget.dataset);
 		modalController.open();
+	}
+	rejectAccountingEntry() {
+		const modalController = this.application.getControllerForElementAndIdentifier(
+			this.rejectTarget,
+			"modal"
+		);
+		modalController.openReject();
 	}
 }

@@ -13,4 +13,8 @@ class AccountingEntry < ApplicationRecord
 		self.status == "pending"
 	end
 
+	def approved?
+		self.status == "approved"
+	end
+
 end

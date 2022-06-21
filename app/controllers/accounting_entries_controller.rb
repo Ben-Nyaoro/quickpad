@@ -31,10 +31,6 @@ class AccountingEntriesController < ApplicationController
 		else
 			render 'edit'
 		end
-
-		if @accounting_entry.status != :approved
-			@approve_entry = @accounting_entry.update(status => :approved)
-		end
 	end
 
 	def destroy
@@ -42,12 +38,7 @@ class AccountingEntriesController < ApplicationController
 		redirect_to accounting_entries_path
 	end
 
-	def approve_accounting_entry
-		@accounting_entry.update(status: :approved)
-	end
-
 	private
-
 
 	def accounting_entry_params
 		params.require(:accounting_entry).permit( :date_prepared, :date_posted, :particular, :status, :book, :ref_number)
