@@ -4,6 +4,6 @@ class JournalEntry < ApplicationRecord
   belongs_to :accounting_code
   belongs_to :accounting_entry
 
-	validates :amount, presence: true, numerical: true
+	validates :amount
 	validates :post_type, presence: true, inclusion: { in: POST_TYPES }
 end
