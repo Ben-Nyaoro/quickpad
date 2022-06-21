@@ -14,7 +14,7 @@
 	<tbody>
 		<% @accounting_entries.each do |accounting_entry| %>
 			<tr>
-				<td><%= accounting_entry.ref_number %></td>
+				<td><%= link_to accounting_entry.ref_number, accounting_entry_path(accounting_entry) %></td>
 				<td><%= accounting_entry.date_prepared %></td>
 				<td><%= accounting_entry.date_posted %></td>
 				<td><%= accounting_entry.particular %></td>

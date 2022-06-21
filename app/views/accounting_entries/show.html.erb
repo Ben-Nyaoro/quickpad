@@ -4,6 +4,11 @@
 			<li><b>Reference no:</b> <%= @accounting_entry.ref_number %></li>
 			<li><b>Date Prepared:</b> <%= @accounting_entry.date_prepared.strftime(" %a, %e %b %Y") %></li>
 			<b>Status:</b> <%= @accounting_entry.status %></li>
+			<li>
+				<%= link_to accounting_entries_path,  class: "btn btn-outline-info btn-sm" do %>
+					<i class="fas fa-chevron-left"></i> Back
+				<% end %>
+			</li>
 		</ul>
 		<%= render "approve" %>
 </div>
