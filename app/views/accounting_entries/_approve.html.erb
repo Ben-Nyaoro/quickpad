@@ -1,10 +1,10 @@
-<div id="app" data-controller="demo">
+<div id="app" data-controller="approval">
 		<hr>
 			<% if @accounting_entry.pending? %>
-				<button class="btn btn-outline-success" id="btn-approve" data-action="click->demo#approveAccountingEntry">
+				<button class="btn btn-outline-success" id="btn-approve" data-action="click->approval#approveAccountingEntry">
 						Approve
 				</button>
-				<button class="btn btn-outline-danger" id="btn-reject" data-action="click->demo#rejectAccountingEntry">
+				<button class="btn btn-outline-danger" id="btn-reject" data-action="click->approval#rejectAccountingEntry">
 						Reject
 				</button>
 			<% elsif @accounting_entry.approved?%>
@@ -18,7 +18,7 @@
 			<% end %>
 		<hr>
 
-	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-demo-target="approve">
+	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-approval-target="approve">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-demo-target="reject">
+	<div class="modal" tabindex="-1" role="dialog" data-controller="modal" data-approval-target="reject">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">

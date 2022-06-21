@@ -1,10 +1,9 @@
-<h3>Accounting Entry</h3>
-	<ul class="list-inline">
-		<li><b>Reference no:</b> <%= @accounting_entry.ref_number %></li>
-		<li><b>Date Prepared:</b> <%= @accounting_entry.date_prepared.strftime(" %a, %e %b %Y") %></li>
-		<b>Status:</b> <%= @accounting_entry.status %></li>
-	</ul>
-	<div  data-controller="demo">
-
+<div  class="container">
+	<h3>Accounting Entry</h3>
+		<ul class="list-inline">
+			<li><b>Reference no:</b> <%= @accounting_entry.ref_number %></li>
+			<li><b>Date Prepared:</b> <%= @accounting_entry.date_prepared.strftime(" %a, %e %b %Y") %></li>
+			<b>Status:</b> <%= @accounting_entry.status %></li>
+		</ul>
 		<%= render "approve" %>
-	</div>
+</div>

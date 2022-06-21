@@ -4,7 +4,7 @@ export default class extends Controller {
     static targets = ["approve", "reject"];
 
 	connect() {
-		console.log("demo controller connected");
+		console.log("Approval controller connected");
 	}
 
 	approveAccountingEntry() {
