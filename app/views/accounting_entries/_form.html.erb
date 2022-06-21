@@ -1,40 +1,36 @@
-<div class="container">
+<%= simple_form_for(@accounting_entry) do |f|  %>
+	<div class="row d-flex justify-content-between">
+		<div class="col m-4">
+			<%= f.label :ref_number %>
+			<%= f.text_field :ref_number, class: 'form-control' %>
+		</div>
+		<div class="col m-4">
+			<%= f.label :date_prepared %>
+			<%= f.date_field :date_prepared, class: 'form-control' %>
+		</div>
+		<div class="col m-4">
+			<%= f.label :date_posted %>
+			<%= f.date_field :date_posted, class: 'form-control' %>
+		</div>
+	</div>
+
 	<div class="row">
-		<div class="col">
+		<div class="col m-4">
+			<%= f.input :status, collection: AccountingEntry::STATUSES, class: 'form-control' %>
+		</div>
+		<div class="col m-4">
+			<%= f.input :book, collection: AccountingEntry::BOOKS, class: 'form-control' %>
+		</div>
+	</div>
 
-				<%= form_with model: @accounting_entry, class:"" do |f|  %>
-				<div class="row d-flex justify-content-between">
-					<div class="col">
-							<%= f.label :ref_number %>
-							<%= f.text_field :ref_number%>
-					</div>
-					<div class="col">
-						<%= f.label :date_prepared %>
-						<%= f.date_field :date_prepared%>
-					</div>
-					<div class="col">
-						<%= f.label :date_posted %>
-						<%= f.date_field :date_posted %>
-					</div>
-				</div>
-
+	<div class="row">
+		<div class="col m-4">
+			<%= f.input :particular, class: 'form-control' %>
 		</div>
-
-		<div class="row">
-			<div class="col m-3">
-				<%= f.label :status, collection: AccountingEntry::STATUSES %>
-				<%= f.select :status, collection: AccountingEntry::STATUSES %>
-			</div>
-			<div class="col m-3">
-				<%= f.label :book, collection: AccountingEntry::BOOKS %>
-				<%= f.select :book, collection: AccountingEntry::BOOKS %>
-			</div>
+	</div>
+	<div class="row">
+		<div class="col m-4">
+			<%= f.submit class: 'btn btn-success form-control' %>
 		</div>
-		<div class="row">
-				<%= f.label :particular, class: "m-4" %>
-				<%= f.text_area :particular, class: "m-4" %>
-		</div>
-				<%= f.submit class: "m-4" %>
-			<% end %>
-		</div>
-</div>
+	</div>
+<% end %>
