@@ -15,8 +15,8 @@
 		<% @accounting_entries.each do |accounting_entry| %>
 			<tr>
 				<td><%= link_to accounting_entry.ref_number, accounting_entry_path(accounting_entry) %></td>
-				<td><%= accounting_entry.date_prepared %></td>
-				<td><%= accounting_entry.date_posted %></td>
+				<td><%= accounting_entry.date_prepared.strftime("%e %b %Y")  %></td>
+				<td><%= accounting_entry.date_posted.strftime("%e %b %Y")  %></td>
 				<td><%= accounting_entry.particular %></td>
 				<td><%= accounting_entry.status %></td>
 				<td><%= accounting_entry.book %></td>
