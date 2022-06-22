@@ -35,10 +35,19 @@
 }
 .sidebar .logo-details .logo_name{
   font-size: 22px;
-  color: #fff;
+  color: #2ac28a;
   font-weight: 600;
   transition: 0.3s ease;
   transition-delay: 0.1s;
+}
+
+.logo_name{
+	font-family: "Open Sans", sans-serif;
+}
+.logo_name_sm{
+	font-family: "Open Sans", sans-serif;
+	font-size: 8px;
+  color: #2ac28a;
 }
 .sidebar.close .logo-details .logo_name{
   transition-delay: 0s;
