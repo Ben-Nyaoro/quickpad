@@ -1,106 +1,140 @@
-<div class="m-1">
-	<div class="flex-shrink-0 p-3 ml-4 bg-white" style="width: 100%;">
+<div class="sidebar close">
+	<div class="logo-details">
 		<%= link_to root_path do %>
-			<%= image_tag "Logolong.png", class: "logo" %>
-		<% end %> <hr>
-		<ul class="list-unstyled ps-0">
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed">
-					Dashboard
-				</button>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
-					Sales
-				</button>
-				<div class="collapse" id="sales-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">New</a></li>
-						<li><a href="#" class="link-dark rounded">Processed</a></li>
-						<li><a href="#" class="link-dark rounded">Shipped</a></li>
-						<li><a href="#" class="link-dark rounded">Returned</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#purchases-collapse" aria-expanded="false">
-					Purchases
-				</button>
-				<div class="collapse" id="purchases-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">New</a></li>
-						<li><a href="#" class="link-dark rounded">Processed</a></li>
-						<li><a href="#" class="link-dark rounded">Shipped</a></li>
-						<li><a href="#" class="link-dark rounded">Returned</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#inventory-collapse" aria-expanded="false">
-					Inventory
-				</button>
-				<div class="collapse" id="inventory-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">Overview</a></li>
-						<li><a href="#" class="link-dark rounded">Weekly</a></li>
-						<li><a href="#" class="link-dark rounded">Monthly</a></li>
-						<li><a href="#" class="link-dark rounded">Annually</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#banking-collapse" aria-expanded="false">
-					Banking
-				</button>
-				<div class="collapse" id="banking-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">New</a></li>
-						<li><a href="#" class="link-dark rounded">Processed</a></li>
-						<li><a href="#" class="link-dark rounded">Shipped</a></li>
-						<li><a href="#" class="link-dark rounded">Returned</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#accounting-collapse" aria-expanded="false">
-					Accounting
-				</button>
-				<div class="collapse" id="accounting-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><%= link_to "Chart of Accounts", accounting_codes_path %></li>
-						<li><%= link_to "Transactions", accounting_entries_path %></li>
-						<li><%= link_to "Create Journals", new_accounting_entry_path %></li>
-
-					</ul>
-				</div>
-			</li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#reports-collapse" aria-expanded="false">
-					Reports
-				</button>
-				<div class="collapse" id="reports-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">New</a></li>
-						<li><a href="#" class="link-dark rounded">Processed</a></li>
-						<li><a href="#" class="link-dark rounded">Shipped</a></li>
-						<li><a href="#" class="link-dark rounded">Returned</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="border-top my-3"></li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#settings-collapse" aria-expanded="false">
-					Settings
-				</button>
-				<div class="collapse" id="settings-collapse">
-					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-						<li><a href="#" class="link-dark rounded">New...</a></li>
-						<li><a href="#" class="link-dark rounded">Profile</a></li>
-						<li><a href="#" class="link-dark rounded">Settings</a></li>
-						<li><a href="#" class="link-dark rounded">Sign out</a></li>
-					</ul>
-				</div>
-			</li>
-		</ul>
+      <%= image_tag "Logolong.png", class: "logo" %>
+    <% end %> <hr>
+		<span class="logo_name"></span>
 	</div>
+	<ul class="nav-links">
+		<li>
+			<%= link_to root_path do %>
+				<i class="fa-solid fa-gauge"></i>
+				<span class="link_name">Dashboard</span>
+			<% end %>
+			<ul class="sub-menu blank">
+				<li><a class="link_name" href="#">Sales</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-sack-dollar"></i>
+					<span class="link_name">Sales</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow'></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Sales</a></li>
+				<li><a href="#">HTML & CSS</a></li>
+				<li><a href="#">JavaScript</a></li>
+				<li><a href="#">PHP & MySQL</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-cart-plus"></i>
+					<span class="link_name">Purchases</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Purchases</a></li>
+				<li><a href="#">Web Design</a></li>
+				<li><a href="#">Login Form</a></li>
+				<li><a href="#">Card Design</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-cart-flatbed"></i>
+					<span class="link_name">Inventory</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Inventory</a></li>
+				<li><a href="#">Web Design</a></li>
+				<li><a href="#">Login Form</a></li>
+				<li><a href="#">Card Design</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-building-columns"></i>
+					<span class="link_name">Banking</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Banking</a></li>
+				<li><a href="#">Web Design</a></li>
+				<li><a href="#">Login Form</a></li>
+				<li><a href="#">Card Design</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-scale-unbalanced"></i>
+					<span class="link_name">Accounting</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Accounting</a></li>
+				<li><%= link_to "Chart of Accounts", accounting_codes_path %></li>
+				<li><%= link_to "Transactions", accounting_entries_path %></li>
+				<li><%= link_to "Create Journals", new_accounting_entry_path %></li>
+			</ul>
+		</li>
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-chart-pie"></i>
+					<span class="link_name">Reports</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Reports</a></li>
+				<li><a href="#">UI Face</a></li>
+				<li><a href="#">Pigments</a></li>
+				<li><a href="#">Box Icons</a></li>
+			</ul>
+		</li>
+
+		<li>
+			<div class="icon-link">
+				<a href="#">
+					<i class="fa-solid fa-gear"></i>
+					<span class="link_name">Setting</span>
+				</a>
+				<i class='bx bxs-chevron-down arrow' ></i>
+			</div>
+			<ul class="sub-menu">
+				<li><a class="link_name" href="#">Setting</a></li>
+				<li><a href="#">UI Face</a></li>
+				<li><a href="#">Pigments</a></li>
+				<li><a href="#">Box Icons</a></li>
+			</ul>
+		</li>
+		<%# <li>
+			<div class="profile-details">
+				<div class="profile-content">
+					<!--<img src="image/profile.jpg" alt="profileImg">-->
+				</div>
+				<div class="name-job">
+					<div class="profile_name">Prem Shahi</div>
+					<div class="job">Web Desginer</div>
+				</div>
+				<i class='bx bx-log-out' ></i>
+			</div>
+		</li> %>
+	</ul>
 </div>
+
+
+

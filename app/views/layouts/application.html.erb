@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr"></html>
   <head>
     <title>Quickpad</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,22 +11,26 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 		<%= favicon_link_tag asset_path('favicon.png') %>
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+		<script src="https://kit.fontawesome.com/fa68d01b0f.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-
-	<div class="m-1" style="width: 100%;">
-		<div class="row d-flex justify-content-around">
-			<div class="col-3 ml-0 p-0">
-				<%= render "shared/sidebar" %>
+		<%= render "shared/sidebar" %>
+		<section class="home-section p-1">
+			<%= render 'shared/navbar' %>
+			<div class="home-content">
+				<i class='bx bx-menu' ></i>
+				<span class="text">Asili Organic Limited</span>
 			</div>
-			<div class="col-9 mr-0 p-1">
-				<%= render 'shared/flashes' %>
-				<%= render 'shared/navbar' %>
-				<%= yield %>
-			</div>
-		</div>
-	</div>
-
+					<%= render 'shared/flashes' %>
+					<%= yield %>
+		</section>
+		<%= javascript_pack_tag 'sidebar'%>
   </body>
+
 </html>
