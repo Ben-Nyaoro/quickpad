@@ -7,6 +7,7 @@ class AccountingEntriesController < ApplicationController
   end
 
   def show
+		@accounting_codes = AccountingCode.all
   end
 
 	def new

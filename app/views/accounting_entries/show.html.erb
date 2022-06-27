@@ -11,4 +11,14 @@
 			</li>
 		</ul>
 		<%= render "approve" %>
+
+      <hr>
+
+      <% if @accounting_entry.pending? %>
+        <%= render partial: "journal_entries/new" %>
+      <% end %>
+      
+      <% if @accounting_entry.journal_entries.size > 0 %>
+        <%= render partial: "journal_entries", locals: { journal_entries: @accounting_entry.journal_entries, accounting_entry: @accounting_entry } %>
+      <% end %>
 </div>

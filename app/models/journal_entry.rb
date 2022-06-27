@@ -1,6 +1,6 @@
 class JournalEntry < ApplicationRecord
 
-	POST_TYPES = %w["DR", "CR"]
+	POST_TYPES = ["DR", "CR"]
   belongs_to :accounting_code
   belongs_to :accounting_entry
 

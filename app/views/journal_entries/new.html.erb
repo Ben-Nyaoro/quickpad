@@ -1,0 +1,7 @@
+<%= simple_form_for [@journal_entry ] do |f| %>
+	<%#= f.select :accounting_codes  %>
+	<%#= f.select :post_type  %>
+	<%= f.number_field :amount, placeholder: "Amount" %>
+	<%= f.submit "Add", class: "btn btn-success" %>
+<% end %>
+<%# Compare this snippet from app/views/accounting_entries/show.html.erb: %>
