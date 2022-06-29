@@ -4,7 +4,7 @@
 			<li><b>Reference no:</b> <%= @accounting_entry.ref_number %></li>
 			<li><b>Date Prepared:</b> <%= @accounting_entry.date_prepared.strftime(" %a, %e %b %Y") %></li>
 			<b>Status:</b> <%= @accounting_entry.status %></li>
-			<li>
+			<li><br>
 				<%= link_to accounting_entries_path,  class: "btn btn-outline-info btn-sm" do %>
 					<i class="fas fa-chevron-left"></i> Back
 				<% end %>
@@ -13,76 +13,8 @@
 
 	<%= render "approve" %>
 	<% if @accounting_entry.pending? %>
-		<%= simple_form_for [@accounting_entry, @journal_entry] do |f| %>
-			<div class="row">
-				<div class="col">
-					<%= f.association :accounting_code, prompt: "Select Accounting code ..." %>
-					</div>
-				<div class="col">
-					<%= f.input :post_type, collection: JournalEntry::POST_TYPES, prompt: "Select Post type" %>
-				</div>
-				<div class="col">
-					<%= f.input :amount, class: "form-control", default: 0.00 %>
-				</div>
-				<div class="col">
-					<%= f.label "Action:" %>
-					<%= f.submit "Add Entry", class: "form-control btn, btn-success" %>
-				</div>
-			</div>
-		<% end %> <hr>
+		<%= render "journal_entries/form" %>
 	<% end %>
 
-	<table class="table table-bordered table-sm">
-		<thead>
-			<tr>
-				<th>
-					Accounting Code
-				</th>
-				<th class="text-right">
-					Debit
-				</th>
-				<th class="text-right">
-					Credit
-				</th>
-				<% if @accounting_entry.pending? %>
-					<th class="text-center">
-						Actions
-					</th>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @accounting_entry.journal_entries.each do |journal_entry| %>
-				<tr>
-					<td>
-						<%= journal_entry.accounting_code %>
-					</td>
-					<td class="text-right">
-						<% if journal_entry.is_debit? %>
-						<%= number_to_currency(journal_entry.amount, unit: '') %>
-						<% end %>
-					</td>
-					<td class="text-right">
-						<% if journal_entry.is_credit? %>
-						<%= number_to_currency(journal_entry.amount, unit: '') %>
-						<% end %>
-					</td>
-					<% if @accounting_entry.pending? %>
-						<td class="list-inline text-center">						
-						<li class="nav-item">
-						<a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="fas fa-edit"></i>
-						</a>
-						<ul class="dropdown-menu">
-							<li></li>
-							<li><%= link_to "Edit", journal_entry_path(journal_entry), class: "dropdown-item" %></li>
-							<li><%= link_to "Delete", journal_entry_path(journal_entry), method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %></li>
-						</ul>
-					</li>
-						</td>
-					<% end %>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<%= render "journal_entries/table" %>
 </div> <br><hr>

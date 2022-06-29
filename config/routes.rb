@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	resources :accounting_codes
 
 	resources :accounting_entries do
-		resources :journal_entries, only: [:new, :create]
+		resources :journal_entries, only: [:new, :create, :edit, :update]
 	end	
 	resources :journal_entries, only: [:show, :index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -2,6 +2,7 @@ class AccountingEntriesController < ApplicationController
 
 	before_action :set_accounting_entry, only: [ :show, :edit, :update, :destroy ]
 
+
   def index
 		@accounting_entries = AccountingEntry.all
   end
@@ -11,6 +12,7 @@ class AccountingEntriesController < ApplicationController
 		@accounting_entry = AccountingEntry.find(params[:id])
 		@journal_entries = JournalEntry.where(accounting_entry_id: @accounting_entry.id)
 		@journal_entries = @accounting_entry.journal_entries
+		check_and_balance!
   end
 
 	def new
@@ -50,6 +52,23 @@ class AccountingEntriesController < ApplicationController
 
 	def set_accounting_entry
 		@accounting_entry = AccountingEntry.find(params[:id])
+	end
+
+	def check_and_balance!
+		@debit_amount  = 0.00
+		@credit_amount = 0.00
+
+		@journal_entries.each do |o|
+			if o.is_debit?
+				@debit_amount  += o.amount
+			elsif o.is_credit?
+				@credit_amount += o.amount
+			end
+		end
+
+		if @debit_amount != @credit_amount
+			@errors = "Unbalanced journal entries. Debit: #{@debit_amount} Credit: #{@credit_amount}"
+		end
 	end
 
 end
