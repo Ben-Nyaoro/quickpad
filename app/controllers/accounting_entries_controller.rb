@@ -7,7 +7,10 @@ class AccountingEntriesController < ApplicationController
   end
 
   def show
-		@accounting_codes = AccountingCode.all
+		@journal_entry = JournalEntry.new(accounting_entry: @accounting_entry)
+		@accounting_entry = AccountingEntry.find(params[:id])
+		@journal_entries = JournalEntry.where(accounting_entry_id: @accounting_entry.id)
+		@journal_entries = @accounting_entry.journal_entries
   end
 
 	def new
@@ -16,7 +19,7 @@ class AccountingEntriesController < ApplicationController
 
 	def create
 		@accounting_entry = AccountingEntry.new(accounting_entry_params)
-		if @accounting_entry.save
+		if @accounting_entry.save!
 			redirect_to @accounting_entry
 		else
 			render 'new'
@@ -42,7 +45,7 @@ class AccountingEntriesController < ApplicationController
 	private
 
 	def accounting_entry_params
-		params.require(:accounting_entry).permit( :date_prepared, :date_posted, :particular, :status, :book, :ref_number)
+		params.require(:accounting_entry).permit(:date_prepared, :date_posted, :particular, :status, :book, :ref_number )
 	end
 
 	def set_accounting_entry

@@ -10,15 +10,69 @@
 				<% end %>
 			</li>
 		</ul>
-		<%= render "approve" %>
 
-      <hr>
+	<%= render "approve" %>
+	<% if @accounting_entry.pending? %>
+		<%= simple_form_for [@accounting_entry, @journal_entry] do |f| %>
+			<div class="row">
+				<div class="col">
+					<%= f.association :accounting_code, prompt: "Select Accounting code ..." %>
+					</div>
+				<div class="col">
+					<%= f.input :post_type, collection: JournalEntry::POST_TYPES, prompt: "Select Post type" %>
+				</div>
+				<div class="col">
+					<%= f.input :amount, class: "form-control", default: 0.00 %>
+				</div>
+				<div class="col">
+					<%= f.submit "Add Entry", class: "form-control btn, btn-success" %>
+				</div>
+			</div>
+		<% end %> <hr>
+	<% end %>
 
-      <% if @accounting_entry.pending? %>
-        <%= render partial: "journal_entries/new" %>
-      <% end %>
-      
-      <% if @accounting_entry.journal_entries.size > 0 %>
-        <%= render partial: "journal_entries", locals: { journal_entries: @accounting_entry.journal_entries, accounting_entry: @accounting_entry } %>
-      <% end %>
-</div>
+	<table class="table table-bordered table-sm">
+		<thead>
+			<tr>
+				<th>
+					Accounting Code
+				</th>
+				<th class="text-right">
+					Debit
+				</th>
+				<th class="text-right">
+					Credit
+				</th>
+				<% if @accounting_entry.pending? %>
+					<th class="text-center">
+						Actions
+					</th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @accounting_entry.journal_entries.each do |journal_entry| %>
+				<tr>
+					<td>
+						<%= journal_entry.accounting_code %>
+					</td>
+					<td class="text-right">
+						<% if journal_entry.is_debit? %>
+						<%= number_to_currency(journal_entry.amount, unit: '') %>
+						<% end %>
+					</td>
+					<td class="text-right">
+						<% if journal_entry.is_credit? %>
+						<%= number_to_currency(journal_entry.amount, unit: '') %>
+						<% end %>
+					</td>
+					<% if @accounting_entry.pending? %>
+						<td class="text-center">
+							<%= link_to 'Delete', journal_entry_path(journal_entry), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+						</td>
+					<% end %>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div> <br><hr>

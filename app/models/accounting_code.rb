@@ -116,6 +116,6 @@ STATUS = [
 	has_many :journal_entries
 
   def to_s
-    "#{code} - #{name}"
+    "#{code} - #{account}"
   end
 end
