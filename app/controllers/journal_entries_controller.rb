@@ -1,8 +1,6 @@
 class JournalEntriesController < ApplicationController
   def new
 		@journal_entry = JournalEntry.new
-		#@accounting_codes = AccountingCode.all
-		#@accounting_entries = AccountingEntry.all
   end
 
   def create
