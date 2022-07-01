@@ -1,0 +1,54 @@
+<h1>Reports#trial_balance</h1>
+<p>Find me in app/views/reports/trial_balance.html.erb</p>
+
+<%= @result %>
+
+<table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>
+          Accounting Code
+        </th>
+        <th class="text-right">
+          Debit
+        </th>
+        <th class="text-right">
+          Credit
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#entries}}
+        <tr>
+          <td>
+            <strong>
+							<%= @accounting_code %>
+            </strong>
+          </td>
+          <td class="text-right">
+            {{dr_amount}}
+          </td>
+          <td class="text-right">
+            {{cr_amount}}
+          </td>
+        </tr>
+      {{/entries}}
+      <tr>
+        <td>
+          <strong>
+            Total
+          </strong>
+        </td>
+        <td class="text-right">
+          <strong>
+            {{total_debit}}
+          </strong>
+        </td>
+        <td class="text-right">
+          <strong>
+            {{total_credit}}
+          </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>

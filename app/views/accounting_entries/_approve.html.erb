@@ -25,11 +25,17 @@
 					<h4 class="modal-title">Approve Accounting Entry</h4>
 				</div>
 				<div class="modal-body">
-					<p>Are you sure you want to approve this accounting entry?</p>
 					<%= simple_form_for [ @accounting_entry ] do |f| %>
-					<%= f.hidden_field :status, :value => "approved" %> <hr>
-					<%= f.submit "Approve", class: "btn btn-primary"%>
-					<button type="button" class="btn btn-secondary" data-action="click->modal#close" data-dismiss="modal">Close</button>
+						<% if @accounting_entry.journal_entries.size < 2 %>
+							<p>Accounting entry MUST have more than two journal entries.</p>
+						<% elsif @debit_amount != @credit_amount %>
+							<p>Your accounting entry does not balance.</p>
+						<% else %>
+							<p>Are you sure you want to approve this accounting entry?</p>
+							<%= f.hidden_field :status, :value => "approved" %> <hr>
+							<%= f.submit "Approve", class: "btn btn-primary"%>
+						<% end %>
+						<button type="button" class="btn btn-secondary" data-action="click->modal#close" data-dismiss="modal">Close</button>
 					<% end %>
 				</div>
 			</div>

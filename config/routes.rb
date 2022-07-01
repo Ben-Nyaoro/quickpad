@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  get 'accounting_entries/index'
-  get 'accounting_entries/show'
+  get 'reports/trial_balance'
+  get 'reports/income_statement'
+  get 'reports/balance_sheet'
   devise_for :users
 
 	resources :accounting_codes
